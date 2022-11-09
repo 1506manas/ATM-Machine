@@ -1,10 +1,10 @@
 class ATM:
     def __init__(self):
-        self.PIN = 0
-        self.Balance = 0
-        self.menu()
+        self.__PIN = 0
+        self.__Balance = 0
+        self.__menu()
 
-    def menu(self):
+    def __menu(self):
         User_Input = input('''
         1 - Set Your PIN.
         2 - Check Your Balance.
@@ -28,40 +28,40 @@ class ATM:
 
 
     def set_pin(self):
-        self.PIN = int(input("Enter Yor PIN: "))
+        self.__PIN = int(input("Enter Yor PIN: "))
         print("PIN set successfully")
-        self.menu()
+        self.__menu()
 
     def check_balance(self):
         pin = int(input("Enter Your PIN: "))
-        if pin == self.PIN:
+        if pin == self.__PIN:
             print("Your current balance is: ", self.Balance)
-            self.menu()
+            self.__menu()
         else:
             print("Invalid PIN. Try again...")
-            self.menu()
+            self.__menu()
 
     def withdraw(self):
         pin = int(input("Enter Your PIN: "))
-        if pin == self.PIN:
+        if pin == self.__PIN:
             amount = int(input("Enter the amount to withdraw: "))
-            if amount <= self.Balance:
-                self.Balance = self.Balance - amount
+            if amount <= self.__Balance:
+                self.__Balance = self.__Balance - amount
                 print("Collect Your Cash.")
-                self.menu()
+                self.__menu()
             else:
                 print("The withdrawl amount is more then your balance")
         else:
             print("Invalid PIN. Try again...")
-            self.menu()
+            self.__menu()
 
     def deposit(self):
         pin = int(input("Enter Your PIN: "))
-        if pin == self.PIN:
-            amount = int(input("Enter the amount to withdraw: "))
-            self.Balance = self.Balance + amount
+        if pin == self.__PIN:
+            amount = int(input("Enter the amount to deposit: "))
+            self.__Balance = self.__Balance + amount
             print("Your cash has been Deposited.")
-            self.menu()
+            self.__menu()
         else:
             print("Invalid PIN. Try again...")
-            self.menu()
+            self.__menu()

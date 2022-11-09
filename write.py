@@ -1,0 +1,7 @@
+file=open("file1.txt","w")
+file.write("I am writing something into the file\n")
+file.write("It allows us to write in a file")
+file.close()
+file=open("file1.txt","r")
+files=file.read()
+print(files)
